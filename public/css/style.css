@@ -216,3 +216,23 @@ select {
     width: 20rem;
     padding-right: 14rem;
 }
+
+#boton{
+    padding: 0.5rem;
+    margin-top: 1rem ;
+    background-color: rgb(5, 59, 160);
+    color: white;
+    border-radius: 5px;
+}
+.precioEntrada{
+ font-family: 'Times New Roman', Times, serif;
+
+font-size: larger;
+
+margin-right: 1rem;
+padding: 0.5rem;
+}
+#boton:hover{
+    background-color: rgb(69, 127, 182);
+    transition: 1s;
+}

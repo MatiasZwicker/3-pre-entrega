@@ -13,7 +13,7 @@ const pintarEntradas = (data) => {
                             `<div class="card-image">
                             <img src=${entrada.imagen}>
                             <h1 class="card-title">${entrada.tribuna}</h1>
-                            <a class="btn-floating halfway-fab wabes-effect waves-light blue"><i id=${entrada.id} class="material-icons agregar">add_shopping_cart</i></a>
+                            <a  class="btn-floating halfway-fab wabes-effect waves-light blue"><i id=${entrada.id} class="material-icons agregar">add_shopping_cart</i></a>
                             </div>
 
                             <div class="card-content">

@@ -51,7 +51,7 @@ const actualizarTotalesCarrito = (carrito) => {
     const totalCompra = carrito.reduce((acc, item) => acc + (item.precio * item.cantidad), 0);
     console.log('Total Cantidad:', totalCantidad);
     console.log('Total Compra:', totalCompra);
-    guardarCarritoStorage (carrito);
+    guardarCarritoStorage(carrito);
     pintarTotalesCarrito(totalCantidad, totalCompra);
 };
 
@@ -63,23 +63,31 @@ const pintarTotalesCarrito = (totalCantidad, totalCompra) => {
     precioTotal.innerText = totalCompra;
 };
 
-const pintarCarrito = (carrito) =>{
-    const contenedor = document.getElementById ('carrito-contenedor')
+const pintarCarrito = (carrito) => {
+    const contenedor = document.getElementById('carrito-contenedor');
 
-    contenedor.innerHTML = '' ; 
-    
+    contenedor.innerHTML = '';
+
     carrito.forEach(entrada => {
         const div = document.createElement('div');
         div.classList.add('entradaEnCarrito');
         div.innerHTML = `
-        <p>${entrada.tribuna}</p>
-        <p>Precio: $${entrada.precio}</p>
-        <p id=cantidad${entrada.id}>Cantidad: ${entrada.cantidad}</p>
-        <button class="btn waves-effect waves-ligth boton-eliminar" value="${entrada.id}">X</button>
-    `
+            <p>${entrada.tribuna}</p>
+            <p>Precio: $${entrada.precio}</p>
+            <p id=cantidad${entrada.id}>Cantidad: ${entrada.cantidad}</p>
+            <button class="btn waves-effect waves-ligth boton-eliminar" value="${entrada.id}">X</button>
+        `;
+
         contenedor.appendChild(div);
     });
 
+    // Crear el botón de "Confirmar compra" después de agregar todos los elementos del carrito
+   // const confirmarCompraButton = document.createElement('button');
+    //confirmarCompraButton.id = 'confirmar-compra-button';
+    //onfirmarCompraButton.textContent = 'Confirmar compra';
+
+    // Agregar el botón al final del contenedor
+    //contenedor.appendChild(confirmarCompraButton);
 };
 
 const eliminarEntradaCarrito = (entradaId) => {
@@ -95,11 +103,11 @@ const eliminarEntradaCarrito = (entradaId) => {
             carrito.splice(entradaIndex, 1);
             const entradaDiv = document.querySelector(`.entradaEnCarrito[value="${entrada.id}"]`);
             if (entradaDiv) {
-                entradaDiv.remove();  
-                
+                entradaDiv.remove();
+
             }
         }
-        pintarCarrito (carrito);
+        pintarCarrito(carrito);
         actualizarTotalesCarrito(carrito);
     }
 };
@@ -121,3 +129,19 @@ const cargarCarrito = () => {
     }
 };
 cargarCarrito(); 
+
+
+function borrarCarrito() {
+    // Borra todos los elementos del carrito
+    carrito = [];
+    
+    // Limpia el contenedor del carrito en el DOM
+    const contenedor = document.getElementById('carrito-contenedor');
+    contenedor.innerHTML = '';
+
+    // Actualiza los totales del carrito
+    actualizarTotalesCarrito(carrito);
+
+    // Guarda el carrito vacío en el almacenamiento local si es necesario
+    guardarCarritoStorage(carrito);
+}

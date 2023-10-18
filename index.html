@@ -10,6 +10,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link rel="stylesheet" href="./public/css/style.css">
+  <link rel="stylesheet" href="sweetalert2.min.css">
 </head>
 <body>
   
@@ -31,11 +32,12 @@
     <div id="carrito-contenedor">
 
     </div>
-    <p class="precioEntrada">Precio total: $<span id="precioTotal"></span></p>
-    
+    <p class="precioEntrada">PRECIO TOTAL: $<span id="precioTotal"></span></p>
+    <button id="boton"> Confirmar compra</button>
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/data/stock.js"></script>
 <script src="/js/modal.js"></script>
 <script src="/js/cart.js"></script>
