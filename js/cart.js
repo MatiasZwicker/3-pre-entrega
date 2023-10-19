@@ -145,3 +145,19 @@ function borrarCarrito() {
     // Guarda el carrito vacío en el almacenamiento local si es necesario
     guardarCarritoStorage(carrito);
 }
+
+const contenedor = document.querySelector ('#lista');
+
+fetch('.././data/data.json')
+  .then(response => response.json())
+  .then(data => {
+    data.forEach(item => {
+      const li = document.createElement('li');
+      li.classList.add('lista-partidos');
+      li.innerHTML = `
+        <h4>${item.partido}</h4>
+        <p>${item.fecha}</p>
+      `
+      contenedor.appendChild(li);
+    });
+  })

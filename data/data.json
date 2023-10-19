@@ -1,0 +1,8 @@
+
+[
+    {"partido": "Argentina vs Brasil", "fecha": "25/10/2023", "id": "1"},
+    {"partido": "Argentina vs Uruguay", "fecha": "5/11/2023", "id": "2"},
+    {"partido": "Argentina vs Venezuela", "fecha": "20/11/2023", "id": "3"},
+    {"partido": "Argentina vs Colombia", "fecha": "15/12/2023", "id": "4"},
+    {"partido": "Argentina vs Bolivia", "fecha": "25/12/2023", "id": "5"}
+]

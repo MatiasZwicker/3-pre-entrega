@@ -236,3 +236,19 @@ padding: 0.5rem;
     background-color: rgb(69, 127, 182);
     transition: 1s;
 }
+body{
+    background-color: rgb(83, 116, 207);
+}
+.lista-partidos{
+    text-align: center;
+    color: white;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    text-shadow: 2px 2px black;
+}
+.proximospar{
+    text-align: center;
+    color: rgb(5, 59, 160);
+    text-shadow: 3px 3px black;
+    font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+ 
+}
