@@ -82,7 +82,7 @@ const pintarCarrito = (carrito) => {
     });
 
     // Crear el botón de "Confirmar compra" después de agregar todos los elementos del carrito
-   // const confirmarCompraButton = document.createElement('button');
+    // const confirmarCompraButton = document.createElement('button');
     //confirmarCompraButton.id = 'confirmar-compra-button';
     //onfirmarCompraButton.textContent = 'Confirmar compra';
 
@@ -128,13 +128,13 @@ const cargarCarrito = () => {
         actualizarTotalesCarrito(carrito);
     }
 };
-cargarCarrito(); 
+cargarCarrito();
 
 
 function borrarCarrito() {
     // Borra todos los elementos del carrito
     carrito = [];
-    
+
     // Limpia el contenedor del carrito en el DOM
     const contenedor = document.getElementById('carrito-contenedor');
     contenedor.innerHTML = '';
@@ -146,18 +146,59 @@ function borrarCarrito() {
     guardarCarritoStorage(carrito);
 }
 
-const contenedor = document.querySelector ('#lista');
+const contenedor = document.querySelector('#lista');
 
 fetch('.././data/data.json')
-  .then(response => response.json())
-  .then(data => {
-    data.forEach(item => {
-      const li = document.createElement('li');
-      li.classList.add('lista-partidos');
-      li.innerHTML = `
+    .then(response => response.json())
+    .then(data => {
+        data.forEach(item => {
+            const li = document.createElement('li');
+            li.classList.add('lista-partidos');
+            li.innerHTML = `
         <h4>${item.partido}</h4>
         <p>${item.fecha}</p>
       `
-      contenedor.appendChild(li);
+            contenedor.appendChild(li);
+        });
     });
-  })
+
+
+
+function fetchDataFromURL(url) {
+    return new Promise((resolve, reject) => {
+        fetch(url)
+            .then(response => {
+                if (response.ok) {
+                    resolve(response.json());
+                } else {
+                    reject(`Error: ${response.status} - ${response.statusText}`);
+                }
+            })
+            .catch(error => {
+                reject(error);
+            });
+    });
+}
+
+
+const url = 'https://jsonplaceholder.typicode.com/posts/1';
+
+fetchDataFromURL(url)
+    .then(() => {
+
+        console.log('Exito')
+        const dataContainer = document.getElementById('data-container');
+        if (dataContainer) {
+            dataContainer.textContent = '¡Vamos Selección!';
+            dataContainer.classList.add('mi-clase');
+
+
+
+        } else {
+            console.error('Elemento "data-container" no encontrado en el DOM.');
+        }
+    })
+    .catch(error => {
+        console.error(error);
+    });
+
